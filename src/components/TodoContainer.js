@@ -39,12 +39,16 @@ class TodoContainer extends React.Component {
     console.log('clicked', id);
   }
 
+  delTodo = (id) => {
+    console.log('deleted', id)
+  }
   render() {
     return (
       <div>
         <Header />
         <TodoList todos={this.state.todos}
-        handleChangeProps={this.handleChange} />
+        handleChangeProps={this.handleChange}
+        deleteTodoProps={this.delTodo} />
       </div>
     );
   }
