@@ -13,6 +13,11 @@ class InputTodo extends Component {
     console.log('hello');
   }
 
+  handleSubmit = (e) => {
+    e.preventDefault();
+    console.log(this.state.title);
+  };
+
   render() {
     return (
       <form>
@@ -22,7 +27,7 @@ class InputTodo extends Component {
           value={this.state.title}
           onChange={this.onChange}
         />
-        <button>Submit</button>
+        <button onClick={this.handleSubmit}>Submit</button>
       </form>
     );
   }
