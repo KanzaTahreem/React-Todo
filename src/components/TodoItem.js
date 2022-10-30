@@ -14,6 +14,15 @@ class TodoItem extends React.Component {
     console.log('edit mode activated');
   }
 
+  handleUpdatedDone = (e) => {
+    if(e.key === 'Enter') {
+      this.setState({
+        editing: false
+      })
+    }
+    console.log(e.key);
+  }
+
   render() {
     const completedStyle = {
       fontStyle: "italic",
@@ -53,6 +62,7 @@ class TodoItem extends React.Component {
         style={editMode}
         value={title}
         onChange={(e) => {this.props.setUpdate(e.target.value, id)}}
+        onKeyDown={this.handleUpdatedDone}
         />
       </li>
     );
