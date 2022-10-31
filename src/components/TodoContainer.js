@@ -7,6 +7,7 @@ import InputTodo from './InputTodo';
 import Navbar from './Navbar';
 import About from '../pages/About';
 import NotMatch from '../pages/NotMatch';
+import SinglePage from '../pages/SinglePage';
 
 /* eslint-disable */
 const TodoContainer = () => {
@@ -85,7 +86,9 @@ const TodoContainer = () => {
             </div>
           </div>)}
         />
-        <Route path='/about' element={<About/>}></Route>
+        <Route path='/about' element={<About/>}>
+          <Route path=':slug' element={<SinglePage />} />
+        </Route>
         <Route path='*' element={<NotMatch/>}></Route>
       </Routes>
     </>
