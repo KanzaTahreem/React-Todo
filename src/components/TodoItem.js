@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import styles from './TodoItem.module.css';
 
 /* eslint-disable */
@@ -33,9 +33,11 @@ const TodoItem = (props) => {
     editMode.display = 'none';
   }
 
-  // componentWillUnmount() {
-  //   console.log('cleaning up...')
-  // }
+  useEffect(() => {
+  return () => {
+    console.log('cleaning up...')
+    }
+  }, [])
 
   return (
     <li className={styles.item}>
