@@ -23,6 +23,10 @@ class TodoItem extends React.Component {
     console.log(e.key);
   }
 
+  componentWillUnmount() {
+    console.log('cleaning up...')
+  }
+
   render() {
     const completedStyle = {
       fontStyle: "italic",
