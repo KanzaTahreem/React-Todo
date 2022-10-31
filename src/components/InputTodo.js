@@ -36,7 +36,9 @@ const InputTodo = (props) => {
         value={inputText.title}
         onChange={onChange}
       />
-      <button className="input-submit"><FaPlusCircle /></button>
+      <button className="input-submit">
+        <FaPlusCircle style={{color:'darkcyan', size:'20px', marginTop:'2px'}} />
+      </button>
     </form>
   );
 };
