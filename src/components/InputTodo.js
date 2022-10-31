@@ -1,48 +1,44 @@
-import React, { Component } from 'react';
+import React, { useState } from 'react';
 
 /* eslint-disable */
-class InputTodo extends Component {
-  state ={
+const InputTodo = (props) => {
+  const [inputText, setInputText] = useState({
     title: '',
+  });
+
+  const onChange = (e) => {
+    setInputText({
+      ...inputText,
+      [e.target.name]: e.target.value,
+    });
   };
 
-  onChange = (e) => {
-    this.setState({
-      title: e.target.value,
-    });
-    console.log('hello');
-  }
-
-  handleSubmit = (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
-    if (this.state.title.trim()) {
-      this.props.addTodoProps(this.state.title);
-      this.setState({
-      title: ''
+    if (inputText.title.trim()) {
+      props.addTodoProps(inputText.title);
+      setInputText({
+        title: '',
       });
     } else {
-      alert ('Please write item')
+      alert('Please write item');
     }
-    
-    console.log(this.state.title);
   };
 
-  render() {
-    return (
-      <form>
-        <input
-          type="text"
-          className='input-text'
-          name='title'
-          placeholder="Add Todo..."
-          value={this.state.title}
-          onChange={this.onChange}
-        />
-        <button className='input-submit' onClick={this.handleSubmit}>Submit</button>
-      </form>
-    );
-  }
-}
+  return (
+    <form onSubmit={handleSubmit} className="form-container">
+      <input
+        type="text"
+        className="input-text"
+        name="title"
+        placeholder="Add Todo..."
+        value={inputText.title}
+        onChange={onChange}
+      />
+      <button className="input-submit">Submit</button>
+    </form>
+  );
+};
 
 /* eslint-enable */
 
