@@ -1,8 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import { v4 as uuidv4 } from 'uuid';
+import { Route, Routes } from 'react-router-dom';
 import TodoList from './TodoList';
 import Header from './Header';
 import InputTodo from './InputTodo';
+import Navbar from './Navbar';
+import About from '../pages/About';
+import NotMatch from '../pages/NotMatch';
 
 /* eslint-disable */
 const TodoContainer = () => {
@@ -60,20 +64,31 @@ const TodoContainer = () => {
   }, [todos])
 
   return (
-    <div className='container'>
-      <div className='inner'>
-        <Header />
-        <InputTodo
-        addTodoProps={addTodoItem}
+    <>
+      <Navbar />
+      <Routes>
+        <Route
+          path='/'
+          element={(
+          <div className='container'>
+            <div className='inner'>
+              <Header />
+              <InputTodo
+              addTodoProps={addTodoItem}
+              />
+              <TodoList
+                todos={todos}
+                handleChangeProps={handleChange}
+                deleteTodoProps={delTodo}
+                setUpdate={setUpdate}
+              />
+            </div>
+          </div>)}
         />
-        <TodoList
-          todos={todos}
-          handleChangeProps={handleChange}
-          deleteTodoProps={delTodo}
-          setUpdate={setUpdate}
-        />
-      </div>
-    </div>
+        <Route path='/about' element={<About/>}></Route>
+        <Route path='*' element={<NotMatch/>}></Route>
+      </Routes>
+    </>
   );
 }
 /* eslint-enable */
