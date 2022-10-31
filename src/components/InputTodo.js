@@ -1,7 +1,9 @@
+/* eslint-disable no-alert */
+/* eslint-disable react/prop-types */
+/* eslint-disable react/destructuring-assignment */
 import React, { useState } from 'react';
 import { FaPlusCircle } from 'react-icons/fa';
 
-/* eslint-disable */
 const InputTodo = (props) => {
   const [inputText, setInputText] = useState({
     title: '',
@@ -36,13 +38,11 @@ const InputTodo = (props) => {
         value={inputText.title}
         onChange={onChange}
       />
-      <button className="input-submit">
-        <FaPlusCircle style={{color:'darkcyan', size:'20px', marginTop:'2px'}} />
+      <button type="button" className="input-submit">
+        <FaPlusCircle style={{ color: 'darkcyan', size: '20px', marginTop: '2px' }} />
       </button>
     </form>
   );
 };
-
-/* eslint-enable */
 
 export default InputTodo;

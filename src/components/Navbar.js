@@ -27,32 +27,29 @@ const Navbar = () => {
     setNavbarOpen(false);
   };
 
-  /* eslint-disable */
   return (
-    <nav className='navBar'>
-      <button onClick={handleToggle}>
+    <nav className="navBar">
+      <button type="button" onClick={handleToggle}>
         {navbarOpen ? (
-          <MdClose style={{ color: '#fff', width: '40px', height: '40px'}} />
+          <MdClose style={{ color: '#fff', width: '40px', height: '40px' }} />
         ) : (
-          <FiMenu style={{color: '#7b7b7b', width: '40px', height: '40px'}} />
+          <FiMenu style={{ color: '#7b7b7b', width: '40px', height: '40px' }} />
         )}
       </button>
       <ul className={`menuNav ${navbarOpen ? ' showMenu' : ''}`}>
-      {links.map(link => {
-        return (
+        {links.map((link) => (
           <li key={link.id}>
             <NavLink
-            to={link.path}
-            onClick={() => closeMenu()}
-            >{link.text}</NavLink>
+              to={link.path}
+              onClick={() => closeMenu()}
+            >
+              {link.text}
+            </NavLink>
           </li>
-        )
-      })}
+        ))}
       </ul>
     </nav>
   );
 };
-
-/* eslint-enable */
 
 export default Navbar;
