@@ -10,9 +10,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 ## Built With
 
-- HTML
-- CSS
-- JavaScript
+- HTML/CSS
 - Webpack
 - React
 - [Linters](https://github.com/microverseinc/linters-config/tree/master/react-redux)
